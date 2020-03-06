@@ -117,9 +117,35 @@ function runApp() {
                     break;
 
                 case "Generate":
+                    generate();
                     break;
             }
         })
+    }
+
+    function generate() {
+        for (var i = 0; i < employeeHolder.length; i++) {
+            try {
+            var role = employeeHolder[i].getRole();
+            var name = employeeHolder[i].name;
+            var roleOption;
+
+            if (role === 'Intern') {
+                roleOption = employeeHolder[i].getSchool();
+            } else if (role === 'Manager') {
+                roleOption = employeeHolder[i].getOfficeNumber();
+            } else if (role === 'Engineer') {
+                roleOption = employeeHolder[i].getGithub();
+            }
+
+            console.log(role);
+            console.log(name);
+            console.log(roleOption);
+        } catch(error) {
+            console.log(error);
+        }
+
+        }
     }
 }
 
