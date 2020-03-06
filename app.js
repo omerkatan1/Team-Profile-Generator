@@ -130,12 +130,18 @@ function runApp() {
             var name = employeeHolder[i].name;
             var roleOption;
 
-            if (role === 'Intern') {
-                roleOption = employeeHolder[i].getSchool();
-            } else if (role === 'Manager') {
-                roleOption = employeeHolder[i].getOfficeNumber();
-            } else if (role === 'Engineer') {
-                roleOption = employeeHolder[i].getGithub();
+            switch (role) {
+                case 'Intern':
+                    roleOption = employeeHolder[i].getSchool();
+                    break;
+                
+                case 'Engineer':
+                    roleOption = employeeHolder[i].getGithub();
+                    break;
+
+                case 'Manager':
+                    roleOption = employeeHolder[i].getOfficeNumber();
+                    break;
             }
 
             console.log(role);
